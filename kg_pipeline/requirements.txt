@@ -1,0 +1,6 @@
+spacy 
+
+neo4j
+PyMuPDF
+langchain
+python -m spacy download en_core_web_sm

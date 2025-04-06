@@ -1,0 +1,83 @@
+[
+    {
+      "question": "Who ruled the Delhi Sultanate?",
+      "expected_answers": ["Mamluk dynasty", "Khalji dynasty", "Tughlaq dynasty", "Sayyid dynasty", "Lodi dynasty"]
+    },
+    {
+      "question": "Which dynasty came after Khalji?",
+      "expected_answers": ["Tughlaq dynasty"]
+    },
+    {
+      "question": "What was the duration of the Delhi Sultanate?",
+      "expected_answers": ["1206–1526"]
+    },
+    {
+      "question": "Name the five dynasties that ruled the Delhi Sultanate.",
+      "expected_answers": ["Mamluk", "Khalji", "Tughlaq", "Sayyid", "Lodi"]
+    },
+    {
+      "question": "Which areas did the Delhi Sultanate cover?",
+      "expected_answers": ["India", "Pakistan", "Bangladesh", "Nepal"]
+    },
+    {
+      "question": "What is the modern relevance of the Delhi Sultanate?",
+      "expected_answers": ["Cultural influence", "Architectural legacy"]
+    },
+    {
+      "question": "Which dynasty ruled from 1320 to 1414?",
+      "expected_answers": ["Tughlaq dynasty"]
+    },
+    {
+      "question": "What was the last dynasty of the Delhi Sultanate?",
+      "expected_answers": ["Lodi dynasty"]
+    },
+    {
+      "question": "Name one dynasty that ruled between 1206–1290.",
+      "expected_answers": ["Mamluk dynasty"]
+    },
+    {
+      "question": "Which dynasty was ruling during 1414–1451?",
+      "expected_answers": ["Sayyid dynasty"]
+    },
+    {
+      "question": "Describe the significance of the Delhi Sultanate in shaping the culture and geography of India.",
+      "expected_answers": ["Unified large parts of India", "Introduced Persian culture", "Architectural developments", "Established Indo-Islamic traditions"]
+    },
+    {
+      "question": "What was the time period during which the Delhi Sultanate existed?",
+      "expected_answers": ["1206–1526", "13th to 16th century"]
+    },
+    {
+      "question": "When did the Khalji dynasty rule the Delhi Sultanate?",
+      "expected_answers": ["1290–1320"]
+    },
+    {
+      "question": "Explain the administrative reforms introduced by Alauddin Khalji.",
+      "expected_answers": ["Market control", "Efficient spy system", "Revenue reforms"]
+    },
+    {
+      "question": "During whose reign was the token currency introduced and why did it fail?",
+      "expected_answers": ["Muhammad bin Tughlaq", "Rampant forgery", "Loss of public trust"]
+    },
+    {
+      "question": "What dynasties ruled the Delhi Sultanate in chronological order?",
+      "expected_answers": ["Mamluk", "Khalji", "Tughlaq", "Sayyid", "Lodi"]
+    },
+    {
+      "question": "In what year was the First Battle of Panipat fought, and what was its outcome?",
+      "expected_answers": ["1526", "End of Delhi Sultanate", "Babur defeated Ibrahim Lodi", "Start of Mughal Empire"]
+    },
+    {
+      "question": "Describe the architectural contributions of the Tughlaq dynasty.",
+      "expected_answers": ["Tughlaqabad Fort", "Simple and strong architectural style"]
+    },
+    {
+      "question": "When did Balban rule and what was his policy toward the nobles?",
+      "expected_answers": ["1266–1287", "Crushed nobility", "Strengthened monarchy"]
+    },
+    {
+      "question": "Explain the role of Iltutmish in consolidating the Delhi Sultanate.",
+      "expected_answers": ["Introduced Iqta system", "Completed Qutub Minar", "Strengthened administration"]
+    }
+  ]
+  
