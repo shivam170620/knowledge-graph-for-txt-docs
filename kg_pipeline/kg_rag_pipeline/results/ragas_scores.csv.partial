@@ -1,0 +1,28 @@
+query,faithfulness,answer_relevancy,context_precision,context_recall, answer_similarity
+Who ruled the Delhi Sultanate?,1.0,0.9999999999997935,0.9999999999,1.0,
+Which dynasty came after Khalji?,0.5,0.82576631406457,0.9999999999,1.0,
+What was the duration of the Delhi Sultanate?,1.0,0.9592705713495254,0.9999999999,1.0,
+What was the duration of the Delhi Sultanate?,1.0,0.9488363324155503,0.9999999999,1.0,
+Who were the main dynasties that ruled the Delhi Sultanate?,,0.9958958778861816,0.9999999999,1.0,
+
+
+How did Muhammad Ghori establish Islamic rule in India?,,0.0,0.0,0.0,
+What contributions did Qutb-ud-din Aibak make to architecture?,1.0,0.986076645729374,0.9999999999,0.6666666666666666,
+Why is Iltutmish considered the real consolidator of Turkish rule in India?,,0.9999999999997918,0.0,0.0,
+What challenges did Razia Sultan face during her reign?,,0.0,0.0,0.0,
+How did Balban attempt to strengthen the monarchy?,1.0,0.0,0.9999999999,0.3333333333333333,
+What were the key features of Alauddin Khalji’s market reforms?,,0.998599043471085,0.0,0.0,
+Describe the military strategies of Alauddin Khalji during his southern campaigns.,0.7,0.0,0.0,0.0,
+
+Average Scores:
+faithfulness: 0.8821
+answer_relevancy: 0.5934
+context_precision: 0.6154
+context_recall: 0.4872
+answer_similarity: did not run through 
+
+
+# Now response review is where the question does not have explnations it has provided on point response,
+but where it has to provide explanations it performed averagely, but the documents has not have explanations
+
+this shows the graph rag pipeline and ragas evalauation worked correctly.

@@ -2,12 +2,7 @@ from langchain_groq import ChatGroq
 # from langchain_core.prompts import ChatPromptTemplate
 from config import GROQ_API_KEY, GROQ_MODEL_NAME
 
-def generate_answer(query , context, ):
-
-    """
-        Generate an answer using retrieved context
-        """
-    # Format structural context
+def get_context(context):
     structural_text = ""
     if context["structural_context"]:
         structural_text = "Graph Structural Context:\n"
@@ -28,6 +23,13 @@ def generate_answer(query , context, ):
     
     # Combine contexts
     combined_context = structural_text + "\n" + vector_text
+    return combined_context
+
+def generate_answer(query , context, ):
+
+    """
+        Generate an answer using retrieved context
+        """
     
     # Generate answer using OpenAI
     system_prompt = """
@@ -40,10 +42,10 @@ def generate_answer(query , context, ):
     
     messages = [
         {"role" : "system",  "content" : system_prompt},
-        { "role" : "user" , "content" : f"Question: {query}\n\nContext:\n{combined_context}"}
+        { "role" : "user" , "content" : f"Question: {query}\n\nContext:\n{context}"}
     ]
 
-    print("messages ------------->" , messages)
+    # print("messages ------------->" , messages)
 
     llm = ChatGroq(temperature=0.5, groq_api_key=GROQ_API_KEY, model_name=GROQ_MODEL_NAME, max_retries=2)
     response = llm.invoke(messages)

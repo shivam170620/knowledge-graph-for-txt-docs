@@ -12,72 +12,72 @@
       "expected_answers": ["1206–1526"]
     },
     {
-      "question": "Name the five dynasties that ruled the Delhi Sultanate.",
-      "expected_answers": ["Mamluk", "Khalji", "Tughlaq", "Sayyid", "Lodi"]
+      "question": "What was the duration of the Delhi Sultanate?",
+      "expected_answers": ["1206–1526"]
     },
     {
-      "question": "Which areas did the Delhi Sultanate cover?",
-      "expected_answers": ["India", "Pakistan", "Bangladesh", "Nepal"]
+      "question": "Who were the main dynasties that ruled the Delhi Sultanate?",
+      "expected_answers": ["Mamluk dynasty", "Khalji dynasty", "Tughlaq dynasty", "Sayyid dynasty", "Lodi dynasty"]
     },
     {
-      "question": "What is the modern relevance of the Delhi Sultanate?",
-      "expected_answers": ["Cultural influence", "Architectural legacy"]
+      "question": "How did Muhammad Ghori establish Islamic rule in India?",
+      "expected_answers": ["By defeating Prithviraj Chauhan in the second battle of Tarain", "Invaded India seven times", "Established Islamic rule after repeated conquests"]
     },
     {
-      "question": "Which dynasty ruled from 1320 to 1414?",
-      "expected_answers": ["Tughlaq dynasty"]
+      "question": "What contributions did Qutb-ud-din Aibak make to architecture?",
+      "expected_answers": [
+        "Constructed Quwwat-ul-Islam mosque in Delhi",
+        "Built Adhai din ka Jhompra in Ajmer",
+        "Started the construction of Qutub Minar"
+      ]
     },
     {
-      "question": "What was the last dynasty of the Delhi Sultanate?",
-      "expected_answers": ["Lodi dynasty"]
+      "question": "Why is Iltutmish considered the real consolidator of Turkish rule in India?",
+      "expected_answers": [
+        "He denied refuge to Mangabarni to avoid Mongol invasion",
+        "Received recognition from the Abbasid Caliph",
+        "Introduced coinage system and expanded the Iqta system"
+      ]
     },
     {
-      "question": "Name one dynasty that ruled between 1206–1290.",
-      "expected_answers": ["Mamluk dynasty"]
+      "question": "What challenges did Razia Sultan face during her reign?",
+      "expected_answers": [
+        "Faced opposition for appointing a non-Turk, Yakut, as cavalry head",
+        "Was imprisoned by Altunia",
+        "Killed by Muizuddin Bahram Shah after attempting to reclaim the throne"
+      ]
     },
     {
-      "question": "Which dynasty was ruling during 1414–1451?",
-      "expected_answers": ["Sayyid dynasty"]
+      "question": "How did Balban attempt to strengthen the monarchy?",
+      "expected_answers": [
+        "Eliminated the Chahalgani (the Forty)",
+        "Introduced strict court discipline with practices like prostration",
+        "Declared himself Zil-i-Ilahi (Shadow of God)"
+      ]
     },
     {
-      "question": "Describe the significance of the Delhi Sultanate in shaping the culture and geography of India.",
-      "expected_answers": ["Unified large parts of India", "Introduced Persian culture", "Architectural developments", "Established Indo-Islamic traditions"]
+      "question": "What were the key features of Alauddin Khalji’s market reforms?",
+      "expected_answers": [
+        "Established four separate markets in Delhi",
+        "Regulated prices and banned hoarding",
+        "Appointed Shahna-i-Mandi and secret spies for market control"
+      ]
     },
     {
-      "question": "What was the time period during which the Delhi Sultanate existed?",
-      "expected_answers": ["1206–1526", "13th to 16th century"]
+      "question": "Describe the military strategies of Alauddin Khalji during his southern campaigns.",
+      "expected_answers": [
+        "Appointed Malik Kafur to lead Deccan campaigns",
+        "Captured Gujarat, Malwa, Warangal, and Madurai",
+        "Implemented a standing army for sustained conquests"
+      ]
     },
     {
-      "question": "When did the Khalji dynasty rule the Delhi Sultanate?",
-      "expected_answers": ["1290–1320"]
-    },
-    {
-      "question": "Explain the administrative reforms introduced by Alauddin Khalji.",
-      "expected_answers": ["Market control", "Efficient spy system", "Revenue reforms"]
-    },
-    {
-      "question": "During whose reign was the token currency introduced and why did it fail?",
-      "expected_answers": ["Muhammad bin Tughlaq", "Rampant forgery", "Loss of public trust"]
-    },
-    {
-      "question": "What dynasties ruled the Delhi Sultanate in chronological order?",
-      "expected_answers": ["Mamluk", "Khalji", "Tughlaq", "Sayyid", "Lodi"]
-    },
-    {
-      "question": "In what year was the First Battle of Panipat fought, and what was its outcome?",
-      "expected_answers": ["1526", "End of Delhi Sultanate", "Babur defeated Ibrahim Lodi", "Start of Mughal Empire"]
-    },
-    {
-      "question": "Describe the architectural contributions of the Tughlaq dynasty.",
-      "expected_answers": ["Tughlaqabad Fort", "Simple and strong architectural style"]
-    },
-    {
-      "question": "When did Balban rule and what was his policy toward the nobles?",
-      "expected_answers": ["1266–1287", "Crushed nobility", "Strengthened monarchy"]
-    },
-    {
-      "question": "Explain the role of Iltutmish in consolidating the Delhi Sultanate.",
-      "expected_answers": ["Introduced Iqta system", "Completed Qutub Minar", "Strengthened administration"]
+      "question": "What was the outcome of the conquest of Chittor by Alauddin Khalji?",
+      "expected_answers": [
+        "Defeated Raja Ratan Singh",
+        "Rani Padmini and other women committed Jauhar",
+        "Marked a symbolic victory over Rajput resistance"
+      ]
     }
   ]
   
