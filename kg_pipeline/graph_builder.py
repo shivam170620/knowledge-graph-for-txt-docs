@@ -58,7 +58,6 @@ class Neo4jKG:
     def _sanitize_predicate(predicate):
         # Convert to uppercase
         predicate = predicate.upper()
-        # Replace spaces with underscores
         predicate = predicate.replace(' ', '_')
         # Remove invalid characters (anything that's not a letter, number, or underscore)
         predicate = ''.join(char for char in predicate if char.isalnum() or char == '_')
@@ -68,7 +67,6 @@ class Neo4jKG:
         return predicate
 
     def insert_triple(self, subject, predicate, obj, chunk_text, page_no):
-            # Sanitize the predicate to create a valid relationship type
         try:
             sanitized_predicate = self._sanitize_predicate(predicate)
         except ValueError:

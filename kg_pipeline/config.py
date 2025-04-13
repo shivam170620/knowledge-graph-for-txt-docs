@@ -1,6 +1,16 @@
-NEO4J_URI = "neo4j+s://641629cf.databases.neo4j.io"
-NEO4J_USER = "neo4j"  # Default username for AuraDB
-NEO4J_PASSWORD = "ylockozvHG0DK-ph7fOPdnm3qcB_C0AxAsFOXnUgGbs" # Replace with your actual password
-NEO4J_DATABASE = "neo4j"
+# config.py
+import os
+from dotenv import load_dotenv
 
-PDF_PATH = "delhi_sultnate_test_data.pdf"
+load_dotenv()  # Load environment variables from .env file
+
+NEO4J_URI = os.getenv("NEO4J_URI")
+NEO4J_USER = os.getenv("NEO4J_USER")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")
+NEO4J_DATABASE = os.getenv("NEO4J_DATABASE")
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_MODEL_NAME = os.getenv("GROQ_MODEL_NAME")
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+PDF_PATH = os.getenv("PDF_PATH")
