@@ -1,3 +1,45 @@
+"""
+RAGAS Evaluation Pipeline using Google Gemini LLM and SentenceTransformer embeddings.
+
+This script evaluates RAG (Retrieval-Augmented Generation) outputs using standard RAGAS metrics:
+- Faithfulness
+- Answer Relevancy
+- Context Precision
+- Context Recall
+- Answer Similarity ( this one not ran due to some issues debugging it)
+
+Key Components:
+- ✅ GeminiLLMWrapper: Wraps Google Gemini API into a RAGAS-compatible LLM interface.
+- ✅ HuggingfaceEmbeddings: Provides vector embeddings for context-grounded evaluation.
+- ✅ EvaluationDataset: RAGAS format for each QA pair including query, context, answer, and ground truth.
+- ✅ Modular metric loop: Evaluates each sample sequentially, respecting rate limits.
+
+Why this is useful:
+- Enables fine-grained per-question scoring of LLM responses.
+- Supports Open-Source + Proprietary LLMs via pluggable wrappers.
+- Runs safely with token rate limits via sequential execution and delays.
+
+Challenges Addressed:
+- ✳️ Gemini does not have native RAGAS compatibility — solved via `GeminiClient` + `GeminiLLMWrapper`.
+- ✳️ Input formats vary — handled with `process_item()` abstraction.
+- ✳️ Preventing rate-limit violations — achieved via delay and graceful retries.
+
+----------------------------------------------------------------------
+⚠️ Execution Throttling & Delay Justification:
+
+Although Gemini's free tier supports ~15 requests per minute and ~1 million tokens per minute (TPM),
+we **intentionally add delays (e.g., time.sleep(5–10 seconds))** between each evaluation step for the following reasons:
+
+1. **Avoid burst throttling:** Gemini may throttle burst requests even within stated limits.
+2. **Ensure reliability:** Delays help prevent API 429 rate-limit errors during long runs (50+ samples).
+3. **Multiple LLM calls per sample:** RAGAS evaluates multiple metrics per sample — each may call the LLM once.
+4. **Consistent generation quality:** Sequential, paced LLM requests reduce noise from system load.
+5. **Friendly to free-tier quotas:** Especially important when using the public/free Gemini API without billing enabled.
+
+🌟 This conservative throttling ensures stable, reproducible evaluation results without interruptions.
+
+----------------------------------------------------------------------
+"""
 
 import json
 import time

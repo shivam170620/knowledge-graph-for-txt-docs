@@ -66,7 +66,24 @@ from dataclasses import field
 from pydantic.dataclasses import dataclass
 
 @dataclass
-class HuggingfaceEmbeddings(BaseRagasEmbeddings):
+class HuggingfaceEmbeddings:
+    """
+    HuggingfaceEmbeddings provides a wrapper around SentenceTransformer to be used with RAGAS.
+
+    Attributes:
+        model_name (str): The pretrained model to use (e.g., "all-MiniLM-L6-v2").
+
+    Methods:
+        embed_documents(texts: List[str]) -> List[List[float]]:
+            Returns embeddings for a list of documents.
+        embed_query(text: str) -> List[float]:
+            Returns an embedding for a single query string.
+
+    Why it's useful:
+    - RAGAS needs access to embedding space for several of its metrics.
+    - Provides standardized access to high-quality sentence embeddings.
+    """
+
     model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
     cache_folder: t.Optional[str] = None
     model_kwargs: t.Dict[str, t.Any] = field(default_factory=dict)

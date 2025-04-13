@@ -1,7 +1,33 @@
-spacy 
+# NLP and Entity Extraction
+spacy
+# Required spaCy model (run this manually after installation)
+# python -m spacy download en_core_web_sm
+
+# Dataset utilities
 datasets>=2.0.0
 
+# Knowledge Graph and Graph DB
 neo4j
+
+# PDF/Text Extraction
 PyMuPDF
+
+# LLM Integration & Chaining
 langchain
-python -m spacy download en_core_web_sm
+
+# Additional useful libraries for RAG setups
+sentence-transformers
+faiss-cpu
+openai
+tqdm
+requests
+python-dotenv
+numpy
+pandas
+scikit-learn
+loguru
+ragas
+google-generativeai
+networkx
+
+

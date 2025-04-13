@@ -1,4 +1,9 @@
 venv
 __pycache__
 .DS_Store
+kg_rag_pipeline/__pycache__
+kg_rag_pipeline/.DS_Store
+kg_rag_pipeline/utils/__pycache__
+.env
+
 

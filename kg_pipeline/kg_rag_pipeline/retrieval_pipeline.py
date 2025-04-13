@@ -13,6 +13,40 @@ def generate_embedding(text):
 # Geberate relevant graph paths starting from identified entities 
 # Return paths with nodes and relationships 
 
+
+# Explanation of the cypher query for finding the nodes, relationships and connected nodes i.e subgraph
+
+# 1. MATCH (n)
+# This starts by matching all nodes in the Neo4j graph and binding them to the variable n.
+
+# 2. WHERE ...
+# This filters the matched nodes based on how relevant they are to the input search query ($entity):
+
+# n.name CONTAINS $entity: Node's name property contains the input string.
+
+# n.chunk CONTAINS $entity: Node's chunk (text content) contains the input string.
+
+# apoc.text.fuzzyMatch(n.chunk, $entity) > 0.7: Using APOC library's fuzzy string matching, it checks for semantic similarity between chunk and input query — allowing for fuzzy or partial matches.
+
+# ✅ This part is for searching semantically relevant nodes.
+
+# 3. WITH n
+# Passes only the matching nodes (n) forward to the next part of the query.
+
+# 4. MATCH path = (n)-[r*1..${max_hops}]-(connected)
+# This matches paths starting from the relevant node n, with relationships r of length 1 to max_hops (e.g., 1–2 or 1–3 hops).
+
+# -[r*1..${max_hops}]- is a variable-length relationship pattern, matching any node connected within the defined number of hops.
+
+# ✅ This part builds a subgraph around the matched entity node.
+
+# 5. RETURN path
+# Returns the entire path (node + relationships + connected nodes).
+
+# 6. LIMIT $limit
+# Limits the number of paths returned to avoid excessive data.
+
+
 class Neo4jKG:
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
@@ -91,8 +125,6 @@ class Neo4jKG:
                         path_data["relationships"].append(rel_data)
                     
                     structural_context.append(path_data)
-                
-                # print("structural_context --: ", structural_context)
             
         return structural_context
 
@@ -107,7 +139,6 @@ class Neo4jKG:
         query_embedding_np = np.array(query_embedding)
         
         with self.driver.session() as session:
-            # Fetch all nodes with embeddings
             result = session.run(
                 """
                 MATCH (n)
@@ -116,7 +147,6 @@ class Neo4jKG:
                 """
             )
             
-            # Calculate similarity in Python
             all_nodes = []
             for record in result:
                 node_embedding = np.array(record["embedding"])
@@ -133,44 +163,7 @@ class Neo4jKG:
                         "similarity": float(similarity)
                     })
             
-            # Sort by similarity and take top k
             all_nodes.sort(key=lambda x: x["similarity"], reverse=True)
-            
-            # Extract the context (chunks) from the top k nodes
             return all_nodes[:top_k_vectors]
             
         
-
-# Explanation of the cypher query for finding the nodes, relationships and connected nodes i.e subgraph
-
-# 1. MATCH (n)
-# This starts by matching all nodes in the Neo4j graph and binding them to the variable n.
-
-# 2. WHERE ...
-# This filters the matched nodes based on how relevant they are to the input search query ($entity):
-
-# n.name CONTAINS $entity: Node's name property contains the input string.
-
-# n.chunk CONTAINS $entity: Node's chunk (text content) contains the input string.
-
-# apoc.text.fuzzyMatch(n.chunk, $entity) > 0.7: Using APOC library's fuzzy string matching, it checks for semantic similarity between chunk and input query — allowing for fuzzy or partial matches.
-
-# ✅ This part is for searching semantically relevant nodes.
-
-# 3. WITH n
-# Passes only the matching nodes (n) forward to the next part of the query.
-
-# 4. MATCH path = (n)-[r*1..${max_hops}]-(connected)
-# This matches paths starting from the relevant node n, with relationships r of length 1 to max_hops (e.g., 1–2 or 1–3 hops).
-
-# -[r*1..${max_hops}]- is a variable-length relationship pattern, matching any node connected within the defined number of hops.
-
-# ✅ This part builds a subgraph around the matched entity node.
-
-# 5. RETURN path
-# Returns the entire path (node + relationships + connected nodes).
-
-# 6. LIMIT $limit
-# Limits the number of paths returned to avoid excessive data.
-
-

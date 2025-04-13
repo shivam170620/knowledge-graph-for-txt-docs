@@ -1,3 +1,9 @@
+# This module is gemini client which inherits from BaseRagasLLM and have all memeber functions which 
+# it does have, _process response function expects LLM Results, generate_text, agenerate_text, finish_reason and 
+# other functions. 
+
+
+
 from typing import List, Optional, Dict, Any
 import google.generativeai as genai
 from ragas.llms.base import BaseRagasLLM, LLMResult, RunConfig
@@ -5,6 +11,24 @@ from ragas.prompt.base import BasePrompt
 import time
 
 class GeminiClient:
+    """
+    GeminiClient provides a reusable abstraction over the Google Generative AI (Gemini) SDK.
+
+    Attributes:
+        api_key (str): Your Google AI Studio API key.
+        model_name (str): The Gemini model to use (e.g., "gemini-pro", "gemini-2.5-pro-exp-03-25").
+        temperature (float): Temperature for generation control.
+
+    Methods:
+        generate(prompt: str) -> str:
+            Calls Gemini API to generate a response for the given prompt.
+
+    Notes:
+    - Handles configuration internally using google-generativeai.
+    - Designed for plug-and-play with LangChain or RAGAS wrappers.
+    - Use this class to separate API logic from evaluation or generation logic.
+    """
+
     def __init__(self, api_key: str , model_name: str = "gemini-2.0-flash", temperature: float = 0.3):
         self.api_key = api_key
         self.model_name = model_name
@@ -29,10 +53,28 @@ class GeminiClient:
 
 class GeminiLLMWrapper(BaseRagasLLM):
     """
-    A wrapper for the Gemini API that implements the BaseRagasLLM interface.
-    
-    This wrapper is designed to work with RAGAS evaluation framework.
+    GeminiLLMWrapper integrates Google Gemini with the RAGAS LLM interface.
+
+    It wraps around a GeminiClient and conforms to the RAGAS BaseRagasLLM API by
+    implementing generate_text() and is_finished().
+
+    Args:
+        client (GeminiClient): Preconfigured Gemini client instance.
+        retry_attempts (int): Number of retries on API failure.
+        retry_delay (int): Delay between retries in seconds.
+
+    Methods:
+        generate_text(prompt: PromptValue) -> LLMResult:
+            Converts a prompt into a Gemini-generated response.
+        is_finished(response: LLMResult) -> bool:
+            Always returns True; used to confirm LLM output is complete.
+
+    Why it exists:
+    - RAGAS expects LLMs to follow a specific structure (BaseRagasLLM).
+    - Gemini's native SDK doesn't match that format.
+    - This wrapper bridges that gap, enabling Gemini in a standardized eval pipeline.
     """
+
     
     def __init__(self, client: GeminiClient, retry_attempts: int = 3, retry_delay: int = 2):
         """
@@ -59,11 +101,9 @@ class GeminiLLMWrapper(BaseRagasLLM):
         Returns:
             An LLMResult with the text as completion
         """
-    # Create a generation object in the format RAGAS expects
         generation = {
             "text": text,
             "generation_info": {
-                # Include any other metadata you want to track
                 "model": self.client.model_name,
             }
         }
@@ -170,3 +210,5 @@ class GeminiLLMWrapper(BaseRagasLLM):
             A string representation of the wrapper
         """
         return f"GeminiLLMWrapper(model={self.client.model_name})"
+    
+
